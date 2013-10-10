@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Codefellow App</title>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <script type="text/x-handlebars" data-template-name="index">
+
+  <h1>Welcome to Codefellows</h1>
+
+  <div id="userbox">
+
+    <form id="registration">
+      {{input type="text" placeholder="First Name" value=firstname}}
+      {{input type="text" placeholder="Last Name" value=lastname}}
+      {{input type="text" placeholder="Email Address" value=email}}
+      <input type="button" value="Add User" {{action "addUser" on="click"}}/>
+    </form>
+    
+    <ul id="userlist">
+      {{#each itemController="user"}} <li {{action "editUser" on="click"}}>
+        <img class="photo" {{bind-attr src=photo}}/> 
+        <span class="name">{{firstname}} {{lastname}}</span>
+        <button class="delete" {{action "deleteUser"}}>X</button>
+      </li> {{/each}}
+    </ul>
+
+  </div>
+
+  </script>
+  <script src="js/lib/jquery-1.9.1.js"></script>
+  <script src="js/lib/handlebars-1.0.0.js"></script>
+  <script src="js/lib/ember-1.0.0.js"></script>
+  <script src="js/lib/ember-data-1.0.0.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/mod/user.js"></script>
+  <script src="js/controller/indexController.js"></script>
+  <script src="js/controller/userController.js"></script>
+</body>
+
+</html>
