@@ -12,8 +12,6 @@ body {margin: 20px;}
 	background: blue;
 }
 
-canvas {float: right;}
-
 #userlist {
 	display: block;  
 	padding: 0;
@@ -43,6 +41,7 @@ h1 {text-align: center;}
 }
 
 .name {vertical-align: middle;}
+.email {color: grey; text-decoration: italic;}
 
 button {
 	background: transparent; 
@@ -58,12 +57,4 @@ button {
 	color: red; 
 	font-size: 10px; 
 	font-weight: bold;
-}
-.edit {
-	bottom: 0;
-}
-.edit img {
-	color: grey; 
-	width: 10px; 
-	height: 10px;
 }

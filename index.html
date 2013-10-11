@@ -23,9 +23,10 @@
     </form>
     
     <ul id="userlist">
-      {{#each itemController="user"}} <li {{action "editUser" on="click"}}>
-        <img class="photo" {{bind-attr src=photo}}/> 
+      {{#each itemController="user"}} <li class="user">
+        <img class="photo" {{bind-attr src=photo}}/>
         <span class="name">{{firstname}} {{lastname}}</span>
+        <span class="email">({{email}})</span>
         <button class="delete" {{action "deleteUser"}}>X</button>
       </li> {{/each}}
     </ul>
