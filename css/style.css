@@ -1,14 +1,17 @@
 body {margin: 20px;}
 
+h1 {text-align: center;}
+
 #userbox {
-	float: left;
-	position: relative;
 	padding: 15px;
 	padding-bottom: 5px;
-
 	margin: auto;
-	left: 0; bottom:70%;
-	top: 0; bottom: 0;
+
+	float: left;
+	/*position: relative;
+	left: 0; right: 70%;
+	top: 0; bottom: 0;*/
+
 	background: blue;
 }
 
@@ -21,40 +24,36 @@ body {margin: 20px;}
 }
 
 #userlist li {
-	vertical-align: middle;
 	margin-top: 5px;
 	padding: 3px;
 
 	background: rgba(100,20,20,80);
 	border: 2px solid black;
-	border-radius: 3px;
+	border-radius: 4px;
 }
 
-h1 {text-align: center;}
-
-#registration * {display: block;}
+form * {display: block;}
 
 .photo {
+	vertical-align: middle;
 	width: 30px; 
 	height: 30px; 
-	background: transparent;
 }
 
-.name {vertical-align: middle;}
-.email {color: grey; text-decoration: italic;}
+.email * {color: grey; font-style: italic;}
 
-button {
+.delete {
 	background: transparent; 
 	border: none; 
-
-	padding: 0;
-	float: right;
-	position: relative;
-}
-.delete {
-	top: 0;
-
 	color: red; 
 	font-size: 10px; 
 	font-weight: bold;
+
+	padding: 0;
+	display: block;
+	position: relative;
+	right: 0;
+	top: 0;
+	float: right;
+	clear: none;
 }

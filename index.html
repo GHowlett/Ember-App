@@ -6,6 +6,29 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/lib/jquery-1.9.1.js"></script>
+  <script src="js/lib/handlebars-1.0.0.js"></script>
+  <script src="js/lib/ember-1.0.0.js"></script>
+  <script src="js/lib/ember-data-1.0.0.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/mod/user.js"></script>
+  <script src="js/ctrl/indexController.js"></script>
+  <script src="js/ctrl/userController.js"></script>
+  <script src="js/com/editableText.js"></script>
+
+  <script type="text/x-handlebars" data-template-name="components/editable-text">
+    {{#if isEditing}}
+      <span {{bind-attr class=class}} {{action update on='focusOut'}}>
+        {{input value=text}}
+      </span>
+    {{else}}
+      <span {{bind-attr class=class}} {{action edit on='click'}}>
+        {{text}}
+      </span>
+    {{/if}}
+  </script>
 </head>
 
 <body>
@@ -15,34 +38,26 @@
 
   <div id="userbox">
 
-    <form id="registration">
-      {{input type="text" placeholder="First Name" value=firstname}}
-      {{input type="text" placeholder="Last Name" value=lastname}}
-      {{input type="text" placeholder="Email Address" value=email}}
-      <input type="button" value="Add User" {{action "addUser" on="click"}}/>
+    <form>
+      {{input placeholder="First Name" value=firstname}}
+      {{input placeholder="Last Name" value=lastname}}
+      {{input placeholder="Email Address" value=email}}
+      <button {{action addUser}}>Add User</button>
     </form>
     
     <ul id="userlist">
-      {{#each itemController="user"}} <li class="user">
+      {{#each itemController=user}} <li class="user">
         <img class="photo" {{bind-attr src=photo}}/>
-        <span class="name">{{firstname}} {{lastname}}</span>
-        <span class="email">({{email}})</span>
-        <button class="delete" {{action "deleteUser"}}>X</button>
+        {{editable-text class="name" text=firstname update=updateUser}}
+        {{editable-text class="name" text=lastname update=updateUser}}
+        {{editable-text class="email" text=email update=updateUser}}
+        <button class="delete" {{action deleteUser}}>X</button>
       </li> {{/each}}
     </ul>
 
   </div>
 
   </script>
-  <script src="js/lib/jquery-1.9.1.js"></script>
-  <script src="js/lib/handlebars-1.0.0.js"></script>
-  <script src="js/lib/ember-1.0.0.js"></script>
-  <script src="js/lib/ember-data-1.0.0.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/router.js"></script>
-  <script src="js/mod/user.js"></script>
-  <script src="js/controller/indexController.js"></script>
-  <script src="js/controller/userController.js"></script>
 </body>
 
 </html>

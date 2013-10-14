@@ -1,7 +1,12 @@
 App.UserController = Ember.ObjectController.extend({
-	deleteUser: function() {
+	delete: function() {
 		var user = this.get('model');
 		user.deleteRecord();
 		user.save();
 	},
+
+	update: function() {
+		alert('test');
+		this.get('model').save();
+	}
 });
